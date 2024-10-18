@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<html>
+<head>
+<title>Page Title</title>
+
+</head>
+
+<body>
+<form>
+
+<h1>一番賞測試</h1>
+<p>你是不是臭臭手?</p>
+
+
+
+<button name="1p" class="favorite styled" type="button" style="width:140px" onClick="Re();Random();AddDebt(1100);Show1();Show2()">
+<p style="font-size:20px;line-height:3px;">1回<br>
+<p style="font-size:10px;line-height:5px;">¥1,100
+（税込）</p>
+</button>
+
+
+<button name="3p" class="favorite styled" type="button" style="width:140px" onClick="Re();Random();Random();Random();AddDebt(3300);Show1();Show2()">
+<p style="font-size:20px;line-height:3px;">3回<br>
+<p style="font-size:10px;line-height:5px;">¥3,300
+（税込）</p>
+</button>
+
+
+<button name="5p" class="favorite styled" type="button" style="width:140px" onClick="Re();Random();Random();Random();Random();Random();AddDebt(5500);Show1();Show2();">
+<p style="font-size:20px;line-height:3px;">5回<br>
+<p style="font-size:10px;line-height:5px;">¥5,500
+（税込）</p>
+</button>
+
+
+<button name="10p" class="favorite styled" type="button" style="width:140px" onClick="Re();Random();Random();Random();Random();Random();Random();Random();Random();Random();Random();AddDebt(11000);Show1();Show2();">
+<p style="font-size:20px;line-height:3px;">10回<br>
+<p style="font-size:10px;line-height:5px;">¥11,000
+（税込）</p>
+</button>
+
+</button>
+<p id="prize"></p>
+<p id="demo"></p>
+</form>
+
+<script>
+
+var debt = 0;
+var pa1=0;pa2=0;//A賞
+var pb1=0;pb2=0;//B賞
+var pc1=0;pc2=0;//C賞
+var pd1=0;pd2=0;pd3=0;pd4=0;//D賞
+var pe1=0;pe2=0;pe3=0;pe4=0;pe5=0;pe6=0;//E賞
+
+var a1=0;a2=0;//A賞
+var b1=0;b2=0;//B賞
+var c1=0;c2=0;//C賞
+var d1=0;d2=0;d3=0;d4=0;//D賞
+var e1=0;e2=0;e3=0;e4=0;e5=0;e6=0;//E賞
+
+
+
+function AddDebt(m_debt){
+debt += m_debt;
+
+}
+function Show1(){
+	
+    var desc;
+    
+    
+    desc = "<br>這次抽到了:<br>";
+    
+    if((e1+e2+e3+e4+e5+e6)==10&&(a1+a2+b1+b2+c1+c2+d1+d2+d3+d4)==0)
+    desc += "<br>不是吧?10抽都是E也太臭了!!&emsp;不宜賭博<br>";
+    
+    if(a1!=0)
+    desc += "<br>A賞拽手兔:"+a1+"&emsp;";
+    if(a2!=0)
+    desc += "<br>A賞開手兔:"+a2+"&emsp;";
+    
+    if(b1!=0)
+    desc += "<br>B賞立耳兔:"+b1+"&emsp;";
+    if(b2!=0)
+    desc += "<br>B賞垂耳兔:"+b2+"&emsp;";
+    
+    if(c1!=0)
+    desc += "<br>C賞倒掛兔:"+c1+"&emsp;";
+    if(c2!=0)
+    desc += "<br>C賞藤蔓兔:"+c2+"&emsp;";
+    
+    if(d1!=0)
+    desc += "<br>D賞橡子兔:"+d1+"&emsp;";
+    if(d2!=0)
+    desc += "<br>D賞剪刀兔:"+d2+"&emsp;";
+    if(d3!=0)
+    desc += "<br>D賞可麗露兔:"+d3+"&emsp;";
+    if(d4!=0)
+    desc += "<br>D賞披薩包兔:"+d4+"&emsp;";
+    
+    if(e1!=0)
+    desc += "<br>E賞體重機兔:"+e1+"&emsp;";
+    if(e2!=0)
+    desc += "<br>E賞垂耳兔:"+e2+"&emsp;";
+    if(e3!=0)
+    desc += "<br>E賞筷子兔:"+e3+"&emsp;";
+    if(e4!=0)
+    desc += "<br>E賞槌子兔:"+e4+"&emsp;";
+    if(e5!=0)
+    desc += "<br>E賞屁股兔:"+e5+"&emsp;";
+    if(e6!=0)
+    desc += "<br>E賞睡覺兔:"+e6+"&emsp;";
+    
+   
+	document.getElementById("prize").innerHTML = (desc);
+    
+}
+function Show2(){
+	
+    a=pa1+pa2+pb1+pb2+pc1+pc2+pd1+pd2+pd3+pd4+pe1+pe2+pe3+pe4+pe5+pe6;
+    
+	document.getElementById("demo").innerHTML = 
+    (
+    "<br>總共"+debt/1100+"抽,你已經花了"+debt+"円,也就是台幣"+debt*0.22+"元"+
+    "<br>A賞:"+(pa1+pa2)+"個,&emsp;B賞:"+(pb1+pb2)+"個,"+
+    "&emsp;C賞:"+(pc1+pc2)+"個,"+
+    "&emsp;D賞:"+(pd1+pd2+pd3+pd4)+"個,"+
+    "&emsp;E賞:"+(pe1+pe2+pe3+pe4+pe5+pe6)+"個,"+
+    
+    "<br><br><br>A賞拽手兔:"+pa1+"&nbsp;("+(pa1*100/a)+"%)"+
+    "<br>A賞開手兔:"+pa2+"&nbsp;("+pa2*100/a+"%)"+
+    "<br><br>B賞立耳兔:"+pb1+"&nbsp;("+pb1*100/a+"%)"+
+    "<br>B賞垂耳兔:"+pb2+"&nbsp;("+pb2*100/a+"%)"+
+    
+    "<br><br>C賞倒掛兔:"+pc1+"&nbsp;("+pc1*100/a+"%)"+
+    "<br>C賞藤蔓兔:"+pc2+"&nbsp;("+pc2*100/a+"%)"+
+    
+    "<br><br>D賞橡子兔:"+pd1+"&nbsp;("+pd1*100/a+"%)"+
+    "&emsp;D賞剪刀兔:"+pd2+"&nbsp;("+pd2*100/a+"%)"+
+    "<br>D賞可麗露兔:"+pd3+"&nbsp;("+pd3*100/a+"%)"+
+    "&emsp;D賞披薩包兔:"+pd4+"&nbsp;("+pd4*100/a+"%)"+
+    
+    "<br><br>E賞體重機兔:"+pe1+"&nbsp;("+pe1*100/a+"%)"+
+    "&emsp;E賞垂耳兔:"+pe2+"&nbsp;("+pe2*100/a+"%)"+
+    "<br>E賞筷子兔:"+pe3+"&nbsp;("+pe3*100/a+"%)"+
+    "&emsp;E賞槌子兔:"+pe4+"&nbsp;("+pe4*100/a+"%)"+
+    "<br>E賞屁股兔:"+pe5+"&nbsp;("+pe5*100/a+"%)"+
+    "&emsp;E賞睡覺兔:"+pe6+"&nbsp;("+pe6*100/a+"%)"
+    );
+}
+
+
+
+
+function Re(){
+	a1=0;a2=0;//A賞
+	b1=0;b2=0;//B賞
+	c1=0;c2=0;//C賞
+	d1=0;d2=0;d3=0;d4=0;//D賞
+	e1=0;e2=0;e3=0;e4=0;e5=0;e6=0;//E賞
+}
+
+function Random(){
+	var a;
+    
+	a=Math.floor(Math.random() * 100);
+
+	if (a==0)
+		{pa1++;a1++;}
+	if (a==1)
+		{pa2++;a2++;}
+        
+	if (a==2||a==3)
+		{pb1++;b1++;}
+	if (a==4||a==5)
+		{pb2++;b2++;}
+        
+	if (a>=6&&a<=8)
+		{pc1++;c1++;}
+	if (a>=9&&a<=11)
+		{pc2++;c2++;}
+        
+	if (a>=12&&a<=15)
+		{pd1++;d1++;}
+	if (a>=16&&a<=19)
+		{pd2++;d2++;}
+	if (a>=20&&a<=23)
+		{pd3++;d3++;}
+	if (a>=24&&a<=27)
+		{pd4++;d4++;}
+        
+	if (a>=28&&a<=39)
+		{pe1++;e1++;}
+	if (a>=40&&a<=51)
+		{pe2++;e2++;}
+	if (a>=52&&a<=63)
+		{pe3++;e3++;}
+	if (a>=64&&a<=75)
+		{pe4++;e4++;}
+	if (a>=76&&a<=87)
+		{pe5++;e5++;}
+	if (a>=88&&a<=99)
+		{pe6++;e6++;}
+	
+}
+
+</script>
+</body>
+</html>
